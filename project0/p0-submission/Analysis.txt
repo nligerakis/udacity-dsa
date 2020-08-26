@@ -1,0 +1,33 @@
+Task0:
+Printing the first record and the last record are each O(1), since it isn't dependent on the number 
+of records. Len is also O(1). So, overall, it's O(1) + O(1) + O(1), which simplifies to just O(1).
+
+Task1:
+In each of the for loops, we're doing a dictionary lookup 2 times for each of the records we traverse 
+and assigning a value to the dictionary as well. The dictionary lookups are O(1), and since there are 
+2, it would be O(1) + O(1). However, the loop itself is O(n) where n is the number of texts and O(m) 
+where m is the number of calls. I believe this would be O(m+n). Printing the length of the dictionary 
+is also O(1), so overall, the complexity would be O(m+n)
+
+Task 2:
+We're looping through all the call records, so this is O(n). Within the loop, we're doing several O(1) 
+operations. The overall complexity, therefore, is O(n).
+
+Task3:
+We loop through all the calls, which is again O(n). Within the loop, most of the operations boil down 
+to O(1), except for the fixedPrefix function, which is O(m), where m is the number of characters in the 
+prefix, including the parentheses. There is a small upper bound for that, so m is expected to be small. 
+I think that means for the sake of this problem, it can be considered O(1), since there are potentially 
+orders of magnitude more calls than characters in the prefix. In the worst case, I believe that would 
+make it O(n*m), but since m is small, I would argue it is O(n) in the average case.
+
+Once we have aggregated all of the data, we sort the called prefixes before printing them, which I 
+believe is O(n log n), which would put us at O(n*log(n)) + O(n), which actually bumps us up to 
+O(n*log(n)) overall.
+
+Task4:
+Similar to Task 1, we iterate over all the records in two data sets separately, which gives us O(m+n). 
+The operations within each of those loops is O(1). Once we have the data, we call the difference method, 
+which I believe is O(m), if m is the number of callers. Once again we sort before printing, which 
+puts us at O(n*log(n)) overall.
+
