@@ -13,13 +13,19 @@ with open('calls.csv', 'r') as f:
 
 longestTime = 0
 number = ""
+times = {}
 for call in calls:
-    callLength = int(call[3])
-    if callLength > longestTime:
-        number = call[0]
-        longestTime = callLength
+    caller = call[0]
+    receiver = call[1]
+    length = int(call[3])
+    times[caller] = times.get(caller, 0) + length
+    times[receiver] = times.get(receiver, 0) + length
 
-print(f'{number} spent the longest time, {longestTime} seconds, on the phone during September 2016.')
+sortCalls = sorted(times.items(), key=lambda x: x[1], reverse=True)
+
+
+
+print(f'{sortCalls[0][0]} spent the longest time, {sortCalls[0][1]} seconds, on the phone during September 2016.')
 
 """
 TASK 2: Which telephone number spent the longest time on the phone
