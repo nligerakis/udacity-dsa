@@ -20,7 +20,7 @@ for line in calls:
     recipients.add(line[1])
 
 for line in texts:
-    callers.add(line[0])
+    recipients.add(line[0])
     recipients.add(line[1])
 
 possibleTelemarketers = callers.difference(recipients)
